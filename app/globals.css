@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 自定义CSS变量 */
+:root {
+  --dvit-black: #000000;
+  --dvit-white: #ffffff;
+  --dvit-accent: #007aff;
+  --dvit-blue: #0066cc;
+  --dvit-purple: #6366f1;
+  --dvit-gold: #ffd700;
+  --dvit-gray-50: #f9fafb;
+  --dvit-gray-900: #111827;
+  --dvit-gray-950: #030712;
+}
+
+/* 基础样式重置 */
+@layer base {
+  * {
+    @apply border-white/10;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-dvit-black text-dvit-white font-sf-pro antialiased;
+    @apply overflow-x-hidden;
+  }
+  
+  /* 自定义滚动条 */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-dvit-gray-950;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dvit-gray-700 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-dvit-gray-600;
+  }
+}
+
+/* 组件样式 */
+@layer components {
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(26, 26, 26, 1) 50%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-dvit-white via-dvit-gray-200 to-dvit-white bg-clip-text text-transparent;
+  }
+  
+  .accent-gradient {
+    @apply bg-gradient-to-r from-dvit-accent to-dvit-gold bg-clip-text text-transparent;
+  }
+  
+  .button-primary {
+    @apply bg-dvit-accent hover:bg-blue-600 text-white font-medium px-8 py-4 rounded-full;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25;
+  }
+  
+  .button-secondary {
+    @apply glass-effect text-white font-medium px-8 py-4 rounded-full;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:bg-white/10 hover:scale-105;
+  }
+  
+  .section-padding {
+    @apply px-6 sm:px-8 lg:px-12 xl:px-16;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* 工具样式 */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
+
+/* 动画关键帧 */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* 响应式字体大小 */
+@media (max-width: 640px) {
+  .hero-title {
+    @apply text-4xl;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero-title {
+    @apply text-6xl;
+  }
+}
+
+@media (min-width: 1025px) {
+  .hero-title {
+    @apply text-hero;
+  }
+}
