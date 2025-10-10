@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-import { sendVerificationEmail } from '@/lib/email';
+import { sendVerificationEmail } from 'lib/email';
 import crypto from 'crypto';
 
 export async function POST(request: NextRequest) {
