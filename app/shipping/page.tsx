@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, MapPin, User, Phone, Mail, Package, CreditCard, ShoppingCart } from 'lucide-react';
-import { useAuth } from 'contexts/AuthContext';
-import { useCart } from 'contexts/CartContext';
+import { useAuth } from '../../contexts/AuthContext';
+import { useCart } from '../../contexts/CartContext';
 import PageLayout from '../../components/PageLayout';
 
 interface ShippingAddress {
